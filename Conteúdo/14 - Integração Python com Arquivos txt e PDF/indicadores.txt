@@ -1,0 +1,6 @@
+Quantidade de alunos que vieram pelo site: 73
+Quantidade de alunos que vieram pelo youtube: 155
+Quantidade de alunos que vieram pelo facebook ou instagram: 24
+Quantidade de alunos que vieram pelos anúncios: 274
+Quantidade de alunos totais que vieram pelos organicos: 226
+A origem que teve mais retorno foi: O Youtube com 155 cadastros
