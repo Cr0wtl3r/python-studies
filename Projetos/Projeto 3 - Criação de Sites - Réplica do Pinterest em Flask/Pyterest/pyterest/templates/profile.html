@@ -1,0 +1,58 @@
+{% extends "index.html" %}
+
+{% block titulo %}
+Pyterest - Perfil {{ user.username }}
+{% endblock %}
+
+{% block body %}
+<body>
+{% include "navbar.html" %}
+   <div class="container">
+{% if form %}
+
+      <form method="post" enctype="multipart/form-data" class="bloco-add-img">
+          {{form.csrf_token}}
+        <h2>{{user.username}} - Enviar foto</h2>
+
+          <div class="bloco-arquivo">
+              <label for="image" class="botao-arquivo">
+                  Escolher arquivo
+                    {{form.picture(class="input-arquivo", id="image")}}
+              </label>
+              <span id="imagem-arquivo"></span>
+          </div>
+
+        {{form.confirmation_button(class="botao-login")}}
+      </form>
+
+{% else %}
+        <div class="bloco-add-img">
+             <h2>{{user.username}}</h2>
+        </div>
+{% endif %}
+    </div>
+
+  <div class="conteudo">
+    {% for picture in user.pictures%}
+      <div class="bloco-imagem">
+          <img src="{{ url_for('static', filename='posts_pictures/{}'.format(picture.image)) }}" alt="">
+      </div>
+    {% endfor %}
+  </div>
+
+<script>
+    let input = document.getElementById("image");
+    let imagemArquivo = document.getElementById("imagem-arquivo");
+
+    input.addEventListener("change", ()=>{
+        let inputImagem = document.querySelector("input[type=file]").files[0];
+
+        imagemArquivo.classList.add("visivel");
+        console.log(inputImagem.name)
+        imagemArquivo.innerText = inputImagem.name;
+    });
+</script>
+</body>
+{% endblock %}
+</html>
+

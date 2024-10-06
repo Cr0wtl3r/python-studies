@@ -1,0 +1,18 @@
+{% extends "index.html" %}
+
+{% block body %}
+{% include 'navbar.html' %}
+
+<body>
+<div class="container">
+    <div class="conteudo">
+        {% for picture in pictures%}
+            <a href="{{ url_for('profile', id_user=picture.id_user) }}" class="bloco-imagem">
+                <img src="{{ url_for('static', filename='posts_pictures/{}'.format(picture.image)) }}">
+            </a>
+        {% endfor %}
+    </div>
+</div>
+</body>
+{% endblock %}
+</html>
